@@ -3178,7 +3178,7 @@ abstract class QuickBooks_Driver_Sql extends QuickBooks_Driver
             'qb_realm' => array( QUICKBOOKS_DRIVER_SQL_VARCHAR, 32, 'null' ),
             'qb_flavor' => array( QUICKBOOKS_DRIVER_SQL_VARCHAR, 12, 'null' ),
             'qb_user' => array( QUICKBOOKS_DRIVER_SQL_VARCHAR, 64, 'null' ),
-            'request_datetime' => array( QUICKBOOKS_DRIVER_SQL_DATETIME ),
+            'request_datetime' => array( QUICKBOOKS_DRIVER_SQL_DATETIME, null, 'CURRENT_TIMESTAMP'),
             'access_datetime' => array( QUICKBOOKS_DRIVER_SQL_DATETIME, null, 'null' ),
             'touch_datetime' => array( QUICKBOOKS_DRIVER_SQL_DATETIME, null, 'null' ),
         );
