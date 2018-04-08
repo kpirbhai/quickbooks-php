@@ -1447,6 +1447,7 @@ abstract class QuickBooks_Driver
             if (!empty($data['oauth2_access_token']))
             {
                 $AES = QuickBooks_Encryption_Factory::create('aes');
+                $AES = QuickBooks_Encryption_Factory::create('blowfish');
 
                 $data['oauth2_access_token'] = $AES->decrypt($key, $data['oauth2_access_token']);
                 $data['oauth2_refresh_token'] = $AES->decrypt($key, $data['oauth2_refresh_token']);
@@ -1462,7 +1463,8 @@ abstract class QuickBooks_Driver
 
     public function oauth2AccessWrite($key, $app_username, $app_tenant, $access_token, $refresh_token, $access_token_expire, $refresh_token_expire, $realm, $flavor = '')
     {
-        $AES = QuickBooks_Encryption_Factory::create('aes');
+        //$AES = QuickBooks_Encryption_Factory::create('aes');
+        $AES = QuickBooks_Encryption_Factory::create('blowfish');
 
         $encrypted_access_token = $AES->encrypt($key, $access_token);
         $encrypted_refresh_token = $AES->encrypt($key, $refresh_token);
